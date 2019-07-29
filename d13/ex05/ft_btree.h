@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_create_node.c                                :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaokeefe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/25 09:58:18 by kaokeefe          #+#    #+#             */
-/*   Updated: 2019/07/25 10:10:17 by kaokeefe         ###   ########.fr       */
+/*   Created: 2019/07/25 09:55:45 by kaokeefe          #+#    #+#             */
+/*   Updated: 2019/07/26 11:38:42 by kaokeefe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_btree.h"
-#include <stdlib.h>
+#ifndef FT_BTREE_H
+# define FT_BTREE_H
+# include <stdlib.h>
 
-t_btree	*btree_create_node(void *item)
+typedef struct			s_btree
 {
-	t_btree *node;
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}						t_btree;
 
-	if ((node = malloc(sizeof(t_btree))))
-	{
-		node->item = item;
-		node->left = NULL;
-		node->right = NULL;
-	}
-	return (node);
-}
+#endif
